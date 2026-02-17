@@ -13,21 +13,21 @@ const featuredProjects = [
     title: "Qemer Learning Management System (LMS)",
     description: "A full-stack learning platform helping instructors manage courses and students track progress.",
     tags: ["Next.js", "Node.js", "PostgreSQL"],
-    image: "/project-1.jpg",
+    image: "/qemerdashboard.png",
     slug: "qemer-lms",
   },
   {
     title: "Admin Panel System",
     description: "Centralized dashboard for managing users, content, and system configurations.",
     tags: ["Next.js", "Shadcn UI", "Sequelize"],
-    image: "/project-2.jpg",
+    image: "",
     slug: "admin-panel",
   },
   {
     title: "OneCard System",
     description: "Full-stack ID and access control system built with Next.js and Golang.",
     tags: ["Next.js", "Golang", "PostgreSQL"],
-    image: "/project-4.jpg",
+    image: "",
     slug: "one-card-system",
   },
 ]
@@ -139,10 +139,17 @@ export default function Home() {
             >
               <Card className="group overflow-hidden border-muted/60 bg-muted/20 hover:bg-muted/40 transition-colors duration-300">
                 <div className="aspect-video relative overflow-hidden bg-muted/50">
-                  {/* Placeholder for project image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20">
-                    <Code2 size={64} />
-                  </div>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20">
+                      <Code2 size={64} />
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                     <Button size="sm" variant="secondary" className="gap-2" asChild>
                       <Link href={`/projects/${project.slug}`}>View Case Study</Link>

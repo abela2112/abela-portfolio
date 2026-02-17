@@ -12,7 +12,7 @@ const projects = [
         title: "Qemer Learning Management System (LMS)",
         description: "A full-stack learning management platform designed to help instructors create and manage courses while allowing students to enroll, track progress, and engage with content.",
         tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Cloudinary"],
-        image: "/project-1.jpg",
+        image: "/qemerdashboard.png",
         slug: "qemer-lms",
         role: "Full-Stack Developer",
         repoUrl: "https://github.com/abela2112/Qemer-Academy",
@@ -22,7 +22,7 @@ const projects = [
         title: "Admin Panel System",
         description: "A centralized admin dashboard built to manage users, content, and system configurations for web applications.",
         tags: ["Next.js", "TypeScript", "Shadcn UI", "PostgreSQL", "Sequelize"],
-        image: "/project-2.jpg",
+        image: "/adminpanel.png",
         slug: "admin-panel",
         role: "Lead Developer",
         repoUrl: "https://github.com/abela2112/admin-dashboard",
@@ -32,7 +32,7 @@ const projects = [
         title: "Thread Clone (Social Platform)",
         description: "A social media platform inspired by Threads, allowing users to post short text content, interact, and engage in discussions.",
         tags: ["Next.js", "Node.js", "Express", "PostgreSQL", "JWT Authentication"],
-        image: "/project-3.jpg",
+        image: "/thread.png",
         slug: "thread-clone",
         role: "Full-Stack Developer",
         repoUrl: "https://github.com/abela2112/Threads_clone",
@@ -42,7 +42,7 @@ const projects = [
         title: "OneCard System (ID + Access Control)",
         description: "A digital + physical ID card management system that allows students to use a single card to access services.",
         tags: ["Next.js", "Golang", "PostgreSQL", "Role-based auth"],
-        image: "/project-4.jpg",
+        image: "",
         slug: "one-card-system",
         role: "Backend & Systems Architect",
         repoUrl: "https://github.com",
@@ -90,9 +90,17 @@ export default function ProjectsPage() {
                     >
                         <Card className="flex flex-col h-full overflow-hidden border-muted/60 bg-muted/20 hover:bg-muted/40 transition-colors group">
                             <div className="aspect-video relative overflow-hidden bg-muted/50">
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/10 group-hover:scale-110 transition-transform duration-500">
-                                    <Layers size={120} />
-                                </div>
+                                {project.image ? (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/10 group-hover:scale-110 transition-transform duration-500">
+                                        <Layers size={120} />
+                                    </div>
+                                )}
                                 <div className="absolute top-4 right-4 flex gap-2">
                                     <Badge className="bg-background/80 backdrop-blur text-foreground border-none px-3 py-1">{project.role}</Badge>
                                 </div>

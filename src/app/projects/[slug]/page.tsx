@@ -13,6 +13,7 @@ const projectsData: Record<string, any> = {
         title: "Qemer Learning Management System (LMS)",
         description: "A full-stack learning management platform designed to help instructors create and manage courses while allowing students to enroll, track progress, and engage with content.",
         tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Cloudinary"],
+        image: "/qemerdashboard.png",
         role: "Full-Stack Developer",
         overview: "Qemer LMS is a scalable, modern, and customizable solution for small institutions and independent instructors. It provides a robust platform for course delivery and management.",
         problem: "Many learning platforms are either too complex or too expensive for small institutions and independent instructors. Qemer LMS provides a scalable, modern, and customizable solution.",
@@ -138,8 +139,18 @@ export default function ProjectCaseStudy() {
                                 </a>
                             </div>
                         </div>
-                        <div className="aspect-video bg-muted rounded-2xl overflow-hidden border border-muted-foreground/10 flex items-center justify-center text-muted-foreground/20">
-                            <Layout size={120} />
+                        <div className="aspect-video relative bg-muted rounded-2xl overflow-hidden border border-muted-foreground/10 flex items-center justify-center">
+                            {project.image ? (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                />
+                            ) : (
+                                <div className="text-muted-foreground/20">
+                                    <Layout size={120} />
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
